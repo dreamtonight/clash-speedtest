@@ -123,8 +123,7 @@ func main() {
 			log.Fatalln("Unsupported proxy type: %s", proxy.Type())
 		}
 	}
-	top200 := results[:200]
-	results = top200
+	
 	if *sortField != "" {
 		switch *sortField {
 		case "b", "bandwidth":
@@ -195,7 +194,8 @@ func writeNodeConfigurationToYAMLFiltered(filePath string, results []Result, pro
 			sortedProxies = append(sortedProxies, proxy.SecretConfig)
 		}
 	}
-
+	top200 := sortedProxies[:200]
+	sortedProxies = top200
 	bytes, err := yaml.Marshal(map[string]any{"proxies": sortedProxies})
 
 	if err != nil {
