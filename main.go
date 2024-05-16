@@ -123,7 +123,7 @@ func main() {
 			log.Fatalln("Unsupported proxy type: %s", proxy.Type())
 		}
 	}
-
+	results := results[:200]
 	if *sortField != "" {
 		switch *sortField {
 		case "b", "bandwidth":
