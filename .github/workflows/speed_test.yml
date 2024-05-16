@@ -2,7 +2,7 @@ name: Node Speed Test
 
 on:
   schedule:
-    - cron: '0 14 * * *'
+    - cron: '0 */2 * * *'   # 每2个小时跑一次
   workflow_dispatch: # 允许手动触发
 
 permissions:
